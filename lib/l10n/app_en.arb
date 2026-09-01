@@ -1,0 +1,175 @@
+{
+  "@@locale": "en",
+
+  "appTitle": "75 Days",
+  "@appTitle": {},
+
+  "remindersTooltip": "Reminders",
+  "calendarTooltip": "Calendar",
+  "progressTooltip": "Progress",
+  "todaysTasks": "Today's Tasks",
+  "completeDay": "Complete Day",
+  "finishChallenge": "Finish Challenge",
+  "challengeCompletedSnackbar": "Challenge completed!",
+
+  "dayStartedSnackbar": "Day {day} started!",
+  "@dayStartedSnackbar": {
+    "placeholders": { "day": { "type": "int" } }
+  },
+
+  "completeTheseFirst": "Complete these first: {tasks}",
+  "@completeTheseFirst": {
+    "placeholders": { "tasks": { "type": "String" } }
+  },
+
+  "yourChallenge": "Your 75 Day Challenge",
+  "dayOfTotal": "Day {day} / {total}",
+  "@dayOfTotal": {
+    "placeholders": {
+      "day": { "type": "int" },
+      "total": { "type": "int" }
+    }
+  },
+
+  "percentCompleted": "{percent}% of the challenge completed",
+  "@percentCompleted": {
+    "placeholders": { "percent": { "type": "String" } }
+  },
+
+  "requiredLabel": "Required",
+  "requiredTapPhoto": "Required - tap to add a photo",
+  "requiredTapTimer": "Required - tap to open the timer",
+
+  "taskReading": "Read 10 pages",
+  "taskTraining": "Train for 2 hours",
+  "taskPrayer": "Prayer",
+  "taskPhoto": "Today's progress photo",
+
+  "allTasksCompleted": "All tasks completed. You can finish today!",
+
+  "challengeCompletedTitle": "Challenge Completed!",
+  "challengeCompletedBody": "You finished all 75 days. That's it - no day 76, just take the win.",
+
+  "howWasToday": "How was today? (optional)",
+  "journalHint": "Write a quick note about your day...",
+  "reRecord": "Re-record",
+  "stopRecording": "Stop recording",
+  "addVoiceNote": "Add a voice note",
+  "voiceNoteSaved": "Voice note saved",
+
+  "moodGreat": "Great",
+  "moodGood": "Good",
+  "moodOkay": "Okay",
+  "moodBad": "Bad",
+  "moodTerrible": "Terrible",
+
+  "dayNumber": "Day {day}",
+  "@dayNumber": {
+    "placeholders": { "day": { "type": "int" } }
+  },
+
+  "noPhotoForDay": "No photo saved for this day",
+
+  "feltMood": "Felt {mood}",
+  "@feltMood": {
+    "placeholders": { "mood": { "type": "String" } }
+  },
+
+  "completedDaysTitle": "Completed Days",
+  "daysDone": "Days done",
+  "daysLeft": "Days left",
+  "progressLabel": "Progress",
+  "noCompletedDaysYet": "No completed days yet. Finish today to start your history.",
+
+  "learningTimerTitle": "Learning Timer",
+  "ofDuration": "of {duration}",
+  "@ofDuration": {
+    "placeholders": { "duration": { "type": "String" } }
+  },
+  "trainingCompleteToday": "Training complete for today!",
+  "start": "Start",
+  "pause": "Pause",
+  "timerBackgroundNote": "The timer keeps running in the background even if you leave this screen.",
+
+  "remindersTitle": "Reminders",
+  "dailyReminder": "Daily reminder",
+  "nudgeSubtitle": "Nudge me if today's tasks aren't done yet",
+  "reminderTime": "Reminder time",
+  "reminderNotificationTitle": "75 Days Challenge",
+  "reminderNotificationBody": "Don't forget today's tasks!",
+  "notificationPermissionDenied": "Notification permission was denied.",
+
+  "couldNotScheduleReminder": "Could not schedule the reminder: {error}",
+  "@couldNotScheduleReminder": {
+    "placeholders": { "error": { "type": "String" } }
+  },
+  "couldNotRescheduleReminder": "Could not reschedule the reminder: {error}",
+  "@couldNotRescheduleReminder": {
+    "placeholders": { "error": { "type": "String" } }
+  },
+  "couldNotRearmReminder": "Could not re-arm the daily reminder: {error}",
+  "@couldNotRearmReminder": {
+    "placeholders": { "error": { "type": "String" } }
+  },
+
+  "couldNotLoadProgress": "Could not load your saved progress. Starting fresh.",
+  "couldNotSaveProgress": "Could not save your progress.",
+
+  "couldNotCapturePhoto": "Could not capture photo: {error}",
+  "@couldNotCapturePhoto": {
+    "placeholders": { "error": { "type": "String" } }
+  },
+  "couldNotStartRecording": "Could not start recording: {error}",
+  "@couldNotStartRecording": {
+    "placeholders": { "error": { "type": "String" } }
+  },
+  "couldNotSaveRecording": "Could not save recording: {error}",
+  "@couldNotSaveRecording": {
+    "placeholders": { "error": { "type": "String" } }
+  },
+
+  "language": "Language",
+  "languageEnglish": "English",
+  "languagePersian": "فارسی",
+  "languageSystemDefault": "System default",
+
+  "transformationTitle": "Your Transformation",
+  "viewTransformation": "View Transformation",
+  "backToHome": "Back to Home",
+
+  "beforeAfterTitle": "Before / After",
+  "beforeLabel": "Before",
+  "afterLabel": "After",
+  "viewBeforeAfter": "View Before / After",
+  "beforeAfterNeedsMorePhotos": "Take progress photos on at least two days to see a before/after comparison.",
+
+  "weightCheckinTitle": "Weight Check-in",
+  "weightCheckinBody": "Day {day} — time to log your weight",
+  "@weightCheckinBody": {
+    "placeholders": { "day": { "type": "int" } }
+  },
+  "logWeight": "Log Weight",
+  "weightDialogHint": "Weight (kg)",
+  "weightProgressTitle": "Weight Progress",
+  "noWeightEntriesYet": "No weight logged yet. You'll be checked in every 15 days.",
+  "weightEntryLine": "Day {day}: {weight} kg",
+  "@weightEntryLine": {
+    "placeholders": {
+      "day": { "type": "int" },
+      "weight": { "type": "String" }
+    }
+  },
+  "save": "Save",
+  "cancel": "Cancel",
+
+  "quote1": "Discipline is choosing what you want most over what you want now.",
+  "quote2": "You don't have to be great to start, but you have to start to be great.",
+  "quote3": "Small steps every day add up to big change.",
+  "quote4": "Show up for yourself today. Future you is watching.",
+  "quote5": "Progress, not perfection.",
+  "quote6": "The pain of discipline weighs ounces; the pain of regret weighs tons.",
+  "quote7": "You're not just building a habit, you're building who you are.",
+  "quote8": "One more day, one more brick in the wall you are building.",
+  "quote9": "Consistency beats intensity.",
+  "quote10": "Nobody is coming to save you. Save yourself, one day at a time."
+}

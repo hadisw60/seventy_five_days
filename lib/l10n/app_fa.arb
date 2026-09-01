@@ -1,0 +1,123 @@
+{
+  "@@locale": "fa",
+
+  "appTitle": "۷۵ روز",
+
+  "remindersTooltip": "یادآوری‌ها",
+  "calendarTooltip": "تقویم",
+  "progressTooltip": "پیشرفت",
+  "todaysTasks": "تسک‌های امروز",
+  "completeDay": "اتمام روز",
+  "finishChallenge": "پایان چالش",
+  "challengeCompletedSnackbar": "چالش تکمیل شد!",
+
+  "dayStartedSnackbar": "روز {day} شروع شد!",
+
+  "completeTheseFirst": "اول این‌ها رو تموم کن: {tasks}",
+
+  "yourChallenge": "چالش ۷۵ روزه‌ی تو",
+  "dayOfTotal": "روز {day} / {total}",
+
+  "percentCompleted": "{percent}٪ از چالش تکمیل شده",
+
+  "requiredLabel": "الزامی",
+  "requiredTapPhoto": "الزامی - برای افزودن عکس بزن",
+  "requiredTapTimer": "الزامی - برای باز کردن تایمر بزن",
+
+  "taskReading": "۱۰ صفحه مطالعه",
+  "taskTraining": "۲ ساعت تمرین",
+  "taskPrayer": "نماز",
+  "taskPhoto": "عکس پیشرفت امروز",
+
+  "allTasksCompleted": "همه‌ی تسک‌ها انجام شد. می‌تونی امروز رو تموم کنی!",
+
+  "challengeCompletedTitle": "چالش تکمیل شد!",
+  "challengeCompletedBody": "هر ۷۵ روز رو تموم کردی. همینه - روز ۷۶ای در کار نیست، فقط لذت پیروزی رو ببر.",
+
+  "howWasToday": "امروز چطور بود؟ (اختیاری)",
+  "journalHint": "یه یادداشت کوتاه از روزت بنویس...",
+  "reRecord": "ضبط دوباره",
+  "stopRecording": "توقف ضبط",
+  "addVoiceNote": "افزودن یادداشت صوتی",
+  "voiceNoteSaved": "یادداشت صوتی ذخیره شد",
+
+  "moodGreat": "عالی",
+  "moodGood": "خوب",
+  "moodOkay": "معمولی",
+  "moodBad": "بد",
+  "moodTerrible": "خیلی بد",
+
+  "dayNumber": "روز {day}",
+
+  "noPhotoForDay": "برای این روز عکسی ذخیره نشده",
+
+  "feltMood": "حس {mood} داشتی",
+
+  "completedDaysTitle": "روزهای تکمیل‌شده",
+  "daysDone": "روزهای انجام‌شده",
+  "daysLeft": "روزهای باقی‌مانده",
+  "progressLabel": "پیشرفت",
+  "noCompletedDaysYet": "هنوز هیچ روزی تکمیل نشده. امروز رو تموم کن تا تاریخچه‌ت شروع بشه.",
+
+  "learningTimerTitle": "تایمر تمرین",
+  "ofDuration": "از {duration}",
+  "trainingCompleteToday": "تمرین امروز تموم شد!",
+  "start": "شروع",
+  "pause": "توقف موقت",
+  "timerBackgroundNote": "حتی اگه از این صفحه بری، تایمر تو پس‌زمینه ادامه پیدا می‌کنه.",
+
+  "remindersTitle": "یادآوری‌ها",
+  "dailyReminder": "یادآوری روزانه",
+  "nudgeSubtitle": "اگه تسک‌های امروز هنوز تموم نشده، یادم بنداز",
+  "reminderTime": "ساعت یادآوری",
+  "reminderNotificationTitle": "چالش ۷۵ روز",
+  "reminderNotificationBody": "تسک‌های امروزت رو فراموش نکن!",
+  "notificationPermissionDenied": "اجازه‌ی ارسال اعلان داده نشد.",
+
+  "couldNotScheduleReminder": "یادآوری تنظیم نشد: {error}",
+  "couldNotRescheduleReminder": "زمان یادآوری تغییر نکرد: {error}",
+  "couldNotRearmReminder": "یادآوری روزانه دوباره فعال نشد: {error}",
+
+  "couldNotLoadProgress": "پیشرفت ذخیره‌شده لود نشد. از اول شروع می‌کنیم.",
+  "couldNotSaveProgress": "پیشرفتت ذخیره نشد.",
+
+  "couldNotCapturePhoto": "عکس گرفته نشد: {error}",
+  "couldNotStartRecording": "ضبط شروع نشد: {error}",
+  "couldNotSaveRecording": "ضبط ذخیره نشد: {error}",
+
+  "language": "زبان",
+  "languageEnglish": "English",
+  "languagePersian": "فارسی",
+  "languageSystemDefault": "پیش‌فرض سیستم",
+
+  "transformationTitle": "دگرگونی تو",
+  "viewTransformation": "مشاهده‌ی دگرگونی",
+  "backToHome": "بازگشت به خانه",
+
+  "beforeAfterTitle": "قبل / بعد",
+  "beforeLabel": "قبل",
+  "afterLabel": "بعد",
+  "viewBeforeAfter": "مشاهده‌ی قبل / بعد",
+  "beforeAfterNeedsMorePhotos": "برای مقایسه‌ی قبل/بعد، حداقل تو دو روز عکس پیشرفت بگیر.",
+
+  "weightCheckinTitle": "چک‌این وزن",
+  "weightCheckinBody": "روز {day} — وقت ثبت وزنته",
+  "logWeight": "ثبت وزن",
+  "weightDialogHint": "وزن (کیلوگرم)",
+  "weightProgressTitle": "روند وزن",
+  "noWeightEntriesYet": "هنوز وزنی ثبت نشده. هر ۱۵ روز یه‌بار ازت پرسیده می‌شه.",
+  "weightEntryLine": "روز {day}: {weight} کیلوگرم",
+  "save": "ذخیره",
+  "cancel": "انصراف",
+
+  "quote1": "نظم یعنی چیزی رو که واقعاً می‌خوای به چیزی که همین الان دلت می‌خواد ترجیح بدی.",
+  "quote2": "لازم نیست عالی باشی تا شروع کنی، ولی باید شروع کنی تا عالی بشی.",
+  "quote3": "قدم‌های کوچیک هر روز، جمع می‌شن و یه تغییر بزرگ می‌سازن.",
+  "quote4": "امروز پای خودت وایسا. خودِ آینده‌ت داره تماشا می‌کنه.",
+  "quote5": "پیشرفت مهمه، نه کمال.",
+  "quote6": "درد نظم و انضباط سبکه؛ درد پشیمونی سنگینه.",
+  "quote7": "تو فقط یه عادت نمی‌سازی، داری خودتو می‌سازی.",
+  "quote8": "یه روز دیگه، یه آجر دیگه رو دیواری که داری می‌سازی.",
+  "quote9": "تداوم از شدت مهم‌تره.",
+  "quote10": "هیچکس نمیاد نجاتت بده. خودتو نجات بده، یه روز در یک زمان."
+}
