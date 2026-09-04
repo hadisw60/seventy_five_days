@@ -69,13 +69,25 @@ class AppLocalizationsFa extends AppLocalizations {
   String get taskReading => '۱۰ صفحه مطالعه';
 
   @override
-  String get taskTraining => '۲ ساعت تمرین';
+  String get taskTraining => '۲ ساعت برنامه‌نویسی';
 
   @override
   String get taskPrayer => 'نماز';
 
   @override
   String get taskPhoto => 'عکس پیشرفت امروز';
+
+  @override
+  String get taskGym => 'باشگاه (۴۵ دقیقه)';
+
+  @override
+  String get taskWalking => 'پیاده‌روی (۴۵ دقیقه)';
+
+  @override
+  String get taskCheckin => 'چک-این روزانه';
+
+  @override
+  String get optionalRestDay => 'امروز اختیاری - روز ریکاوری';
 
   @override
   String get allTasksCompleted =>
@@ -89,10 +101,14 @@ class AppLocalizationsFa extends AppLocalizations {
       'هر ۷۵ روز رو تموم کردی. همینه - روز ۷۶ای در کار نیست، فقط لذت پیروزی رو ببر.';
 
   @override
-  String get howWasToday => 'امروز چطور بود؟ (اختیاری)';
+  String get howWasToday => 'امروز چطور بود؟';
 
   @override
-  String get journalHint => 'یه یادداشت کوتاه از روزت بنویس...';
+  String get checkinRequiredHint =>
+      'الزامی - حال روحی، انرژی و میزان پایبندی رو انتخاب کن تا روز تموم بشه';
+
+  @override
+  String get journalHint => 'یه یادداشت کوتاه از روزت بنویس (اختیاری)...';
 
   @override
   String get reRecord => 'ضبط دوباره';
@@ -120,6 +136,33 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get moodTerrible => 'خیلی بد';
+
+  @override
+  String get energyTitle => 'انرژی';
+
+  @override
+  String get energyLow => 'کم';
+
+  @override
+  String get energyMedium => 'متوسط';
+
+  @override
+  String get energyHigh => 'زیاد';
+
+  @override
+  String get adherenceTitle => 'چقدر به قوانین امروز پایبند بودی؟';
+
+  @override
+  String get adherenceShortLabel => 'پایبندی';
+
+  @override
+  String get adherenceFull => 'کامل';
+
+  @override
+  String get adherencePartial => 'تا حدی';
+
+  @override
+  String get adherenceWeak => 'خیلی کم';
 
   @override
   String dayNumber(int day) {

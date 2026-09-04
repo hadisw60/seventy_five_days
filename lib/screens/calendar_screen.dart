@@ -135,6 +135,27 @@ class CalendarScreen extends StatelessWidget {
                   ],
                 ),
               ],
+              if (record.energyLevel != null || record.adherenceLevel != null) ...[
+                const SizedBox(height: 8),
+                Wrap(
+                  spacing: 16,
+                  runSpacing: 4,
+                  children: [
+                    if (record.energyLevel != null)
+                      _DetailChip(
+                        icon: record.energyLevel!.icon,
+                        label:
+                            '${sheetL10n.energyTitle}: ${energyLabel(sheetContext, record.energyLevel!)}',
+                      ),
+                    if (record.adherenceLevel != null)
+                      _DetailChip(
+                        icon: record.adherenceLevel!.icon,
+                        label:
+                            '${sheetL10n.adherenceShortLabel}: ${adherenceLabel(sheetContext, record.adherenceLevel!)}',
+                      ),
+                  ],
+                ),
+              ],
               if (record.journalText != null && record.journalText!.isNotEmpty) ...[
                 const SizedBox(height: 12),
                 Container(
@@ -212,6 +233,34 @@ class _CalendarDayCell extends StatelessWidget {
                   style: TextStyle(color: foreground, fontWeight: FontWeight.bold),
                 ),
         ),
+      ),
+    );
+  }
+}
+
+/// A small labeled pill used to show the energy/adherence rating logged for
+/// a completed day.
+class _DetailChip extends StatelessWidget {
+  const _DetailChip({required this.icon, required this.label});
+
+  final IconData icon;
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+      decoration: BoxDecoration(
+        color: Colors.grey.shade100,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, size: 16, color: Colors.grey.shade700),
+          const SizedBox(width: 6),
+          Text(label, style: TextStyle(fontSize: 12, color: Colors.grey.shade700)),
+        ],
       ),
     );
   }

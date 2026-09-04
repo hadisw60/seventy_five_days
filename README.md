@@ -5,17 +5,27 @@ no account, no login, no backend.
 
 ## The challenge
 
-Each day requires four tasks before you can move on:
+Every day requires these tasks before you can move on:
 
 | Task | How it completes |
 | --- | --- |
 | Read 10 pages | Tap to check off |
-| Train for 2 hours | A real running timer — no manual check-off |
+| Program for 2 hours | A real running timer — no manual check-off |
 | Prayer | Tap to check off |
 | Daily progress photo | Take/pick an actual photo — no fake checkbox |
+| Daily check-in | Pick a mood, energy level, and adherence rating |
+| Gym (45 min) | Tap to check off — required Sat/Mon/Wed only |
+| Walk 45 min | Tap to check off — required on gym days only |
 
-The next day stays locked until all four are done. Day 75 ends the challenge;
-there is no day 76.
+Gym and walking are only mandatory on gym days (Saturday, Monday,
+Wednesday, matching the real weekday); on other days they stay on the list
+as optional so you can still log them without being blocked by them. The
+next day stays locked until every required task for that day is done. Day
+75 ends the challenge; there is no day 76.
+
+Nutrition and sleep are guidance, not checkable tasks — no starvation
+diets, regular meals with enough protein, and sleep is treated as part of
+the challenge rather than something to sacrifice for it.
 
 ## Features
 
@@ -56,7 +66,8 @@ Web is not supported — photo and voice capture rely on `dart:io`.
 ```
 lib/
 ├── main.dart              # wiring only, no logic
-├── models/                # DailyTask, ChallengeState, DayRecord, Mood, WeightEntry
+├── models/                # DailyTask, ChallengeState, DayRecord, Mood,
+│                           # EnergyLevel, AdherenceLevel, WeightEntry
 ├── services/              # storage, photo, voice, notifications, settings, sound
 ├── controllers/           # ChangeNotifier controllers — all business logic
 ├── screens/               # one file per screen
@@ -76,3 +87,12 @@ touching the UI.
   has no native code of its own.
 - `android/app/build.gradle.kts` deliberately sets no `ndkVersion`, for the
   same reason.
+- Release builds are signed with a real keystore when `android/key.properties`
+  exists (see `android/key.properties.example`), falling back to Flutter's
+  shared debug key otherwise. Play Protect flags the debug key as untrusted
+  and blocks install with a "harmful app" warning — set up the real keystore
+  to get past that.
+- `flutter_timezone` currently makes the build print a Kotlin Gradle Plugin
+  warning ("Future versions of Flutter will fail to build..."). This is an
+  upstream issue in that package (already on its latest release) — harmless
+  for now, nothing to fix on our side yet.
