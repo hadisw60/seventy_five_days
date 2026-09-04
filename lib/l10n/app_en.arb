@@ -41,17 +41,23 @@
   "requiredTapTimer": "Required - tap to open the timer",
 
   "taskReading": "Read 10 pages",
-  "taskTraining": "Train for 2 hours",
+  "taskTraining": "Program for 2 hours",
   "taskPrayer": "Prayer",
   "taskPhoto": "Today's progress photo",
+  "taskGym": "Gym (45 min)",
+  "taskWalking": "Walk 45 min",
+  "taskCheckin": "Daily check-in",
+
+  "optionalRestDay": "Optional today - rest day",
 
   "allTasksCompleted": "All tasks completed. You can finish today!",
 
   "challengeCompletedTitle": "Challenge Completed!",
   "challengeCompletedBody": "You finished all 75 days. That's it - no day 76, just take the win.",
 
-  "howWasToday": "How was today? (optional)",
-  "journalHint": "Write a quick note about your day...",
+  "howWasToday": "How was today?",
+  "checkinRequiredHint": "Required - pick a mood, energy, and adherence to finish the day",
+  "journalHint": "Write a quick note about your day (optional)...",
   "reRecord": "Re-record",
   "stopRecording": "Stop recording",
   "addVoiceNote": "Add a voice note",
@@ -62,6 +68,17 @@
   "moodOkay": "Okay",
   "moodBad": "Bad",
   "moodTerrible": "Terrible",
+
+  "energyTitle": "Energy",
+  "energyLow": "Low",
+  "energyMedium": "Medium",
+  "energyHigh": "High",
+
+  "adherenceTitle": "How closely did you stick to the rules?",
+  "adherenceShortLabel": "Adherence",
+  "adherenceFull": "Fully",
+  "adherencePartial": "Partially",
+  "adherenceWeak": "Barely",
 
   "dayNumber": "Day {day}",
   "@dayNumber": {

@@ -3,12 +3,21 @@ import 'package:flutter/material.dart';
 /// The kind of task a user must complete each day of the challenge.
 ///
 /// Display titles are localized; see `lib/l10n/localized_labels.dart`.
-enum TaskType { reading, training, prayer, photo }
+enum TaskType { reading, training, prayer, photo, gym, walking, checkin }
+
+/// Gym days are Saturday, Monday, and Wednesday — every other day is a
+/// recovery day and gym/walking aren't required.
+bool isGymDay(DateTime date) =>
+    date.weekday == DateTime.saturday ||
+    date.weekday == DateTime.monday ||
+    date.weekday == DateTime.wednesday;
 
 /// A single task for the current day, together with its completion state.
 ///
-/// Instances are immutable; use [copyWith] or [resetForNewDay] to derive a
-/// new state instead of mutating fields directly.
+/// Instances are immutable; use [copyWith] to derive a new state instead of
+/// mutating fields directly. Moving to a new day rebuilds the whole list via
+/// [templateForDate] rather than resetting each task in place, since
+/// gym/walking's required state depends on that day's weekday.
 @immutable
 class DailyTask {
   const DailyTask({
@@ -50,15 +59,6 @@ class DailyTask {
     );
   }
 
-  /// Returns a fresh, uncompleted copy of this task for a new day.
-  DailyTask resetForNewDay() {
-    return DailyTask(
-      type: type,
-      icon: icon,
-      isRequired: isRequired,
-    );
-  }
-
   Map<String, dynamic> toJson() => {
         'isCompleted': isCompleted,
         'photoPath': photoPath,
@@ -74,11 +74,27 @@ class DailyTask {
     );
   }
 
-  /// The four tasks required to complete a day, in display order.
-  static const List<DailyTask> template = [
-    DailyTask(type: TaskType.reading, icon: Icons.menu_book_rounded),
-    DailyTask(type: TaskType.training, icon: Icons.fitness_center_rounded),
-    DailyTask(type: TaskType.prayer, icon: Icons.favorite_rounded),
-    DailyTask(type: TaskType.photo, icon: Icons.camera_alt_rounded),
-  ];
+  /// The day's tasks, in display order. Gym and walking are only required
+  /// on gym days (Saturday/Monday/Wednesday) — on other days they're still
+  /// shown, but optional, so the day isn't blocked on a rest day.
+  static List<DailyTask> templateForDate(DateTime date) {
+    final gymDay = isGymDay(date);
+    return [
+      const DailyTask(type: TaskType.reading, icon: Icons.menu_book_rounded),
+      const DailyTask(type: TaskType.training, icon: Icons.code_rounded),
+      const DailyTask(type: TaskType.prayer, icon: Icons.favorite_rounded),
+      const DailyTask(type: TaskType.photo, icon: Icons.camera_alt_rounded),
+      DailyTask(
+        type: TaskType.gym,
+        icon: Icons.fitness_center_rounded,
+        isRequired: gymDay,
+      ),
+      DailyTask(
+        type: TaskType.walking,
+        icon: Icons.directions_walk_rounded,
+        isRequired: gymDay,
+      ),
+      const DailyTask(type: TaskType.checkin, icon: Icons.edit_note_rounded),
+    ];
+  }
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/foundation.dart';
 
+import 'adherence_level.dart';
+import 'energy_level.dart';
 import 'mood.dart';
 
 /// A permanent record of a day the user finished, kept after the daily task
@@ -13,6 +15,8 @@ class DayRecord {
     this.photoPath,
     this.journalText,
     this.mood,
+    this.energyLevel,
+    this.adherenceLevel,
     this.voiceNotePath,
   });
 
@@ -20,10 +24,13 @@ class DayRecord {
   final DateTime completedAt;
   final String? photoPath;
 
-  /// Optional journal note and mood captured for this day. Neither ever
-  /// gated day completion.
+  /// The day's check-in: mood, energy, and adherence, plus an optional free
+  /// note. Mood/energy/adherence gated the check-in task; the note itself
+  /// never did.
   final String? journalText;
   final Mood? mood;
+  final EnergyLevel? energyLevel;
+  final AdherenceLevel? adherenceLevel;
   final String? voiceNotePath;
 
   Map<String, dynamic> toJson() => {
@@ -32,6 +39,8 @@ class DayRecord {
         'photoPath': photoPath,
         'journalText': journalText,
         'mood': mood?.name,
+        'energyLevel': energyLevel?.name,
+        'adherenceLevel': adherenceLevel?.name,
         'voiceNotePath': voiceNotePath,
       };
 
@@ -43,6 +52,8 @@ class DayRecord {
         photoPath: json['photoPath'] as String?,
         journalText: json['journalText'] as String?,
         mood: Mood.fromName(json['mood'] as String?),
+        energyLevel: EnergyLevel.fromName(json['energyLevel'] as String?),
+        adherenceLevel: AdherenceLevel.fromName(json['adherenceLevel'] as String?),
         voiceNotePath: json['voiceNotePath'] as String?,
       );
 }

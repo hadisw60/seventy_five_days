@@ -69,13 +69,25 @@ class AppLocalizationsEn extends AppLocalizations {
   String get taskReading => 'Read 10 pages';
 
   @override
-  String get taskTraining => 'Train for 2 hours';
+  String get taskTraining => 'Program for 2 hours';
 
   @override
   String get taskPrayer => 'Prayer';
 
   @override
   String get taskPhoto => 'Today\'s progress photo';
+
+  @override
+  String get taskGym => 'Gym (45 min)';
+
+  @override
+  String get taskWalking => 'Walk 45 min';
+
+  @override
+  String get taskCheckin => 'Daily check-in';
+
+  @override
+  String get optionalRestDay => 'Optional today - rest day';
 
   @override
   String get allTasksCompleted => 'All tasks completed. You can finish today!';
@@ -88,10 +100,14 @@ class AppLocalizationsEn extends AppLocalizations {
       'You finished all 75 days. That\'s it - no day 76, just take the win.';
 
   @override
-  String get howWasToday => 'How was today? (optional)';
+  String get howWasToday => 'How was today?';
 
   @override
-  String get journalHint => 'Write a quick note about your day...';
+  String get checkinRequiredHint =>
+      'Required - pick a mood, energy, and adherence to finish the day';
+
+  @override
+  String get journalHint => 'Write a quick note about your day (optional)...';
 
   @override
   String get reRecord => 'Re-record';
@@ -119,6 +135,33 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get moodTerrible => 'Terrible';
+
+  @override
+  String get energyTitle => 'Energy';
+
+  @override
+  String get energyLow => 'Low';
+
+  @override
+  String get energyMedium => 'Medium';
+
+  @override
+  String get energyHigh => 'High';
+
+  @override
+  String get adherenceTitle => 'How closely did you stick to the rules?';
+
+  @override
+  String get adherenceShortLabel => 'Adherence';
+
+  @override
+  String get adherenceFull => 'Fully';
+
+  @override
+  String get adherencePartial => 'Partially';
+
+  @override
+  String get adherenceWeak => 'Barely';
 
   @override
   String dayNumber(int day) {

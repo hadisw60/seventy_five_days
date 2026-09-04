@@ -54,7 +54,10 @@ class DailyTaskTile extends StatelessWidget {
         ),
         subtitle: Text(
           _subtitle(l10n, completed, isPhotoTask, isTrainingTask),
-          style: TextStyle(color: Colors.red.shade300, fontSize: 12),
+          style: TextStyle(
+            color: task.isRequired ? Colors.red.shade300 : Colors.grey.shade500,
+            fontSize: 12,
+          ),
         ),
         trailing: _trailing(completed, isPhotoTask, isTrainingTask),
       ),
@@ -62,7 +65,7 @@ class DailyTaskTile extends StatelessWidget {
   }
 
   String _subtitle(AppLocalizations l10n, bool completed, bool isPhotoTask, bool isTrainingTask) {
-    if (!task.isRequired) return '';
+    if (!task.isRequired) return completed ? l10n.requiredLabel : l10n.optionalRestDay;
     if (completed) return l10n.requiredLabel;
     if (isPhotoTask) return l10n.requiredTapPhoto;
     if (isTrainingTask) return l10n.requiredTapTimer;

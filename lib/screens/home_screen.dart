@@ -12,8 +12,8 @@ import '../theme/app_theme.dart';
 import '../widgets/celebration_overlay.dart';
 import '../widgets/challenge_completed_card.dart';
 import '../widgets/completion_status_banner.dart';
+import '../widgets/daily_check_in_card.dart';
 import '../widgets/daily_task_tile.dart';
-import '../widgets/journal_mood_card.dart';
 import '../widgets/language_picker_button.dart';
 import '../widgets/progress_card.dart';
 import '../widgets/weight_checkin_card.dart';
@@ -195,21 +195,22 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 const SizedBox(height: 14),
                 for (final task in state.todayTasks)
-                  DailyTaskTile(
-                    task: task,
-                    onToggle: () => controller.toggleTask(task.type),
-                    onCapturePhoto:
-                        task.type == TaskType.photo ? controller.capturePhoto : null,
-                    onOpenTimer: task.type == TaskType.training
-                        ? () => Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (_) => TimerScreen(controller: controller),
-                              ),
-                            )
-                        : null,
-                  ),
+                  if (task.type != TaskType.checkin)
+                    DailyTaskTile(
+                      task: task,
+                      onToggle: () => controller.toggleTask(task.type),
+                      onCapturePhoto:
+                          task.type == TaskType.photo ? controller.capturePhoto : null,
+                      onOpenTimer: task.type == TaskType.training
+                          ? () => Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (_) => TimerScreen(controller: controller),
+                                ),
+                              )
+                          : null,
+                    ),
                 const SizedBox(height: 12),
-                JournalMoodCard(controller: controller),
+                DailyCheckInCard(controller: controller),
                 const SizedBox(height: 20),
                 CompletionStatusBanner(incompleteMessage: _incompleteTasksMessage(context)),
                 const SizedBox(height: 20),
