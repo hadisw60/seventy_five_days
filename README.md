@@ -87,3 +87,12 @@ touching the UI.
   has no native code of its own.
 - `android/app/build.gradle.kts` deliberately sets no `ndkVersion`, for the
   same reason.
+- Release builds are signed with a real keystore when `android/key.properties`
+  exists (see `android/key.properties.example`), falling back to Flutter's
+  shared debug key otherwise. Play Protect flags the debug key as untrusted
+  and blocks install with a "harmful app" warning — set up the real keystore
+  to get past that.
+- `flutter_timezone` currently makes the build print a Kotlin Gradle Plugin
+  warning ("Future versions of Flutter will fail to build..."). This is an
+  upstream issue in that package (already on its latest release) — harmless
+  for now, nothing to fix on our side yet.
