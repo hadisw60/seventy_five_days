@@ -1,7 +1,9 @@
 import 'package:flutter/foundation.dart';
 
+import 'adherence_level.dart';
 import 'day_record.dart';
 import 'daily_task.dart';
+import 'energy_level.dart';
 import 'mood.dart';
 import 'weight_entry.dart';
 
@@ -16,6 +18,8 @@ class ChallengeState {
     this.isChallengeCompleted = false,
     this.journalText = '',
     this.mood,
+    this.energyLevel,
+    this.adherenceLevel,
     this.voiceNotePath,
     this.weightEntries = const [],
   });
@@ -28,18 +32,21 @@ class ChallengeState {
   final List<DayRecord> completedDays;
   final bool isChallengeCompleted;
 
-  /// Today's optional journal note, mood, and voice memo. None of these
-  /// gate day completion — they're purely reflective extras.
+  /// Today's daily check-in: mood, energy, and adherence together drive the
+  /// [TaskType.checkin] task's completion. The journal note and voice memo
+  /// stay purely optional extras alongside it.
   final String journalText;
   final Mood? mood;
+  final EnergyLevel? energyLevel;
+  final AdherenceLevel? adherenceLevel;
   final String? voiceNotePath;
 
   /// Weight check-ins, logged roughly every [weightCheckInIntervalDays] days.
   final List<WeightEntry> weightEntries;
 
-  factory ChallengeState.initial() => const ChallengeState(
+  factory ChallengeState.initial() => ChallengeState(
         currentDay: 1,
-        todayTasks: DailyTask.template,
+        todayTasks: DailyTask.templateForDate(DateTime.now()),
       );
 
   bool get allRequiredTasksCompleted =>
@@ -68,6 +75,10 @@ class ChallengeState {
     String? journalText,
     Mood? mood,
     bool clearMood = false,
+    EnergyLevel? energyLevel,
+    bool clearEnergyLevel = false,
+    AdherenceLevel? adherenceLevel,
+    bool clearAdherenceLevel = false,
     String? voiceNotePath,
     bool clearVoiceNotePath = false,
     List<WeightEntry>? weightEntries,
@@ -79,6 +90,8 @@ class ChallengeState {
       isChallengeCompleted: isChallengeCompleted ?? this.isChallengeCompleted,
       journalText: journalText ?? this.journalText,
       mood: clearMood ? null : (mood ?? this.mood),
+      energyLevel: clearEnergyLevel ? null : (energyLevel ?? this.energyLevel),
+      adherenceLevel: clearAdherenceLevel ? null : (adherenceLevel ?? this.adherenceLevel),
       voiceNotePath: clearVoiceNotePath ? null : (voiceNotePath ?? this.voiceNotePath),
       weightEntries: weightEntries ?? this.weightEntries,
     );
@@ -93,6 +106,8 @@ class ChallengeState {
         },
         'journalText': journalText,
         'mood': mood?.name,
+        'energyLevel': energyLevel?.name,
+        'adherenceLevel': adherenceLevel?.name,
         'voiceNotePath': voiceNotePath,
         'weightEntries': weightEntries.map((entry) => entry.toJson()).toList(),
       };
@@ -100,7 +115,7 @@ class ChallengeState {
   factory ChallengeState.fromJson(Map<String, dynamic> json) {
     final savedTasks = (json['todayTasks'] as Map?)?.cast<String, dynamic>();
 
-    final tasks = DailyTask.template.map((task) {
+    final tasks = DailyTask.templateForDate(DateTime.now()).map((task) {
       final saved = savedTasks?[task.type.name] as Map?;
       return task.mergeSavedState(saved?.cast<String, dynamic>());
     }).toList();
@@ -120,6 +135,8 @@ class ChallengeState {
       isChallengeCompleted: json['isChallengeCompleted'] as bool? ?? false,
       journalText: json['journalText'] as String? ?? '',
       mood: Mood.fromName(json['mood'] as String?),
+      energyLevel: EnergyLevel.fromName(json['energyLevel'] as String?),
+      adherenceLevel: AdherenceLevel.fromName(json['adherenceLevel'] as String?),
       voiceNotePath: json['voiceNotePath'] as String?,
       weightEntries: weightEntries,
     );

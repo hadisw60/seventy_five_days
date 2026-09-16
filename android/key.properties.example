@@ -1,0 +1,21 @@
+# Copy this to android/key.properties (gitignored — never commit the real
+# file) to sign release builds with a real keystore instead of Flutter's
+# shared debug key. Google Play Protect treats the debug key as untrustworthy
+# by default, since it's the same key every Flutter project starts with, and
+# will warn "this app is harmful" on install — a real, unique keystore is the
+# fix for that.
+#
+# storeFile is resolved relative to android/app/, so the simplest setup is to
+# drop the .jks file straight into android/app/ and reference just its name.
+storeFile=upload-keystore.jks
+storePassword=REPLACE_ME
+keyAlias=REPLACE_ME
+keyPassword=REPLACE_ME
+
+# For GitHub Actions (see .github/workflows/build-android.yml), set these
+# repo secrets instead of committing this file (Settings > Secrets and
+# variables > Actions > New repository secret):
+#   ANDROID_KEYSTORE_BASE64   = base64 of the .jks file (`base64 -w0 upload-keystore.jks`)
+#   ANDROID_KEYSTORE_PASSWORD = storePassword above
+#   ANDROID_KEY_ALIAS         = keyAlias above
+#   ANDROID_KEY_PASSWORD      = keyPassword above

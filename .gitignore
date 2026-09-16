@@ -47,5 +47,11 @@ app.*.map.json
 # Machine-specific SDK paths — must not be shared, or CI/other machines break.
 /android/local.properties
 
+# Release signing — never commit the keystore or its passwords.
+# See android/key.properties.example.
+/android/key.properties
+*.jks
+*.keystore
+
 # Widget Preview related
 .widget_preview/

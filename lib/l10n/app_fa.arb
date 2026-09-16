@@ -25,17 +25,23 @@
   "requiredTapTimer": "الزامی - برای باز کردن تایمر بزن",
 
   "taskReading": "۱۰ صفحه مطالعه",
-  "taskTraining": "۲ ساعت تمرین",
+  "taskTraining": "۲ ساعت برنامه‌نویسی",
   "taskPrayer": "نماز",
   "taskPhoto": "عکس پیشرفت امروز",
+  "taskGym": "باشگاه (۴۵ دقیقه)",
+  "taskWalking": "پیاده‌روی (۴۵ دقیقه)",
+  "taskCheckin": "چک-این روزانه",
+
+  "optionalRestDay": "امروز اختیاری - روز ریکاوری",
 
   "allTasksCompleted": "همه‌ی تسک‌ها انجام شد. می‌تونی امروز رو تموم کنی!",
 
   "challengeCompletedTitle": "چالش تکمیل شد!",
   "challengeCompletedBody": "هر ۷۵ روز رو تموم کردی. همینه - روز ۷۶ای در کار نیست، فقط لذت پیروزی رو ببر.",
 
-  "howWasToday": "امروز چطور بود؟ (اختیاری)",
-  "journalHint": "یه یادداشت کوتاه از روزت بنویس...",
+  "howWasToday": "امروز چطور بود؟",
+  "checkinRequiredHint": "الزامی - حال روحی، انرژی و میزان پایبندی رو انتخاب کن تا روز تموم بشه",
+  "journalHint": "یه یادداشت کوتاه از روزت بنویس (اختیاری)...",
   "reRecord": "ضبط دوباره",
   "stopRecording": "توقف ضبط",
   "addVoiceNote": "افزودن یادداشت صوتی",
@@ -46,6 +52,17 @@
   "moodOkay": "معمولی",
   "moodBad": "بد",
   "moodTerrible": "خیلی بد",
+
+  "energyTitle": "انرژی",
+  "energyLow": "کم",
+  "energyMedium": "متوسط",
+  "energyHigh": "زیاد",
+
+  "adherenceTitle": "چقدر به قوانین امروز پایبند بودی؟",
+  "adherenceShortLabel": "پایبندی",
+  "adherenceFull": "کامل",
+  "adherencePartial": "تا حدی",
+  "adherenceWeak": "خیلی کم",
 
   "dayNumber": "روز {day}",
 

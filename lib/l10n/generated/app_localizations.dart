@@ -203,7 +203,7 @@ abstract class AppLocalizations {
   /// No description provided for @taskTraining.
   ///
   /// In en, this message translates to:
-  /// **'Train for 2 hours'**
+  /// **'Program for 2 hours'**
   String get taskTraining;
 
   /// No description provided for @taskPrayer.
@@ -217,6 +217,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Today\'s progress photo'**
   String get taskPhoto;
+
+  /// No description provided for @taskGym.
+  ///
+  /// In en, this message translates to:
+  /// **'Gym (45 min)'**
+  String get taskGym;
+
+  /// No description provided for @taskWalking.
+  ///
+  /// In en, this message translates to:
+  /// **'Walk 45 min'**
+  String get taskWalking;
+
+  /// No description provided for @taskCheckin.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily check-in'**
+  String get taskCheckin;
+
+  /// No description provided for @optionalRestDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Optional today - rest day'**
+  String get optionalRestDay;
 
   /// No description provided for @allTasksCompleted.
   ///
@@ -239,13 +263,19 @@ abstract class AppLocalizations {
   /// No description provided for @howWasToday.
   ///
   /// In en, this message translates to:
-  /// **'How was today? (optional)'**
+  /// **'How was today?'**
   String get howWasToday;
+
+  /// No description provided for @checkinRequiredHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Required - pick a mood, energy, and adherence to finish the day'**
+  String get checkinRequiredHint;
 
   /// No description provided for @journalHint.
   ///
   /// In en, this message translates to:
-  /// **'Write a quick note about your day...'**
+  /// **'Write a quick note about your day (optional)...'**
   String get journalHint;
 
   /// No description provided for @reRecord.
@@ -301,6 +331,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Terrible'**
   String get moodTerrible;
+
+  /// No description provided for @energyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Energy'**
+  String get energyTitle;
+
+  /// No description provided for @energyLow.
+  ///
+  /// In en, this message translates to:
+  /// **'Low'**
+  String get energyLow;
+
+  /// No description provided for @energyMedium.
+  ///
+  /// In en, this message translates to:
+  /// **'Medium'**
+  String get energyMedium;
+
+  /// No description provided for @energyHigh.
+  ///
+  /// In en, this message translates to:
+  /// **'High'**
+  String get energyHigh;
+
+  /// No description provided for @adherenceTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'How closely did you stick to the rules?'**
+  String get adherenceTitle;
+
+  /// No description provided for @adherenceShortLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Adherence'**
+  String get adherenceShortLabel;
+
+  /// No description provided for @adherenceFull.
+  ///
+  /// In en, this message translates to:
+  /// **'Fully'**
+  String get adherenceFull;
+
+  /// No description provided for @adherencePartial.
+  ///
+  /// In en, this message translates to:
+  /// **'Partially'**
+  String get adherencePartial;
+
+  /// No description provided for @adherenceWeak.
+  ///
+  /// In en, this message translates to:
+  /// **'Barely'**
+  String get adherenceWeak;
 
   /// No description provided for @dayNumber.
   ///

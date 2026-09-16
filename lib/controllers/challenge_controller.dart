@@ -6,9 +6,11 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 
+import '../models/adherence_level.dart';
 import '../models/challenge_state.dart';
 import '../models/day_record.dart';
 import '../models/daily_task.dart';
+import '../models/energy_level.dart';
 import '../models/mood.dart';
 import '../models/weight_entry.dart';
 import '../services/photo_service.dart';
@@ -78,9 +80,14 @@ class ChallengeController extends ChangeNotifier {
   }
 
   /// Toggles a checkbox-style task. Not valid for [TaskType.photo] (see
-  /// [capturePhoto]) or [TaskType.training] (see [startTraining]).
+  /// [capturePhoto]), [TaskType.training] (see [startTraining]), or
+  /// [TaskType.checkin] (completed automatically once mood, energy, and
+  /// adherence are all set — see [updateMood], [updateEnergy],
+  /// [updateAdherence]).
   Future<void> toggleTask(TaskType type) async {
-    if (type == TaskType.photo || type == TaskType.training) return;
+    if (type == TaskType.photo || type == TaskType.training || type == TaskType.checkin) {
+      return;
+    }
 
     final tasks = _state.todayTasks
         .map((task) => task.type == type
@@ -170,12 +177,45 @@ class ChallengeController extends ChangeNotifier {
     }
   }
 
-  /// Sets today's mood. Optional — never gates day completion.
+  /// Sets today's mood, one third of the daily check-in (with
+  /// [updateEnergy] and [updateAdherence]); the check-in task completes once
+  /// all three are set.
   Future<void> updateMood(Mood mood) async {
     _state = _state.copyWith(mood: mood);
+    _syncCheckinTask();
     notifyListeners();
     unawaited(AppSounds.tap());
     await _persist();
+  }
+
+  /// Sets today's energy level, one third of the daily check-in.
+  Future<void> updateEnergy(EnergyLevel energy) async {
+    _state = _state.copyWith(energyLevel: energy);
+    _syncCheckinTask();
+    notifyListeners();
+    unawaited(AppSounds.tap());
+    await _persist();
+  }
+
+  /// Sets today's adherence rating, one third of the daily check-in.
+  Future<void> updateAdherence(AdherenceLevel adherence) async {
+    _state = _state.copyWith(adherenceLevel: adherence);
+    _syncCheckinTask();
+    notifyListeners();
+    unawaited(AppSounds.tap());
+    await _persist();
+  }
+
+  /// Marks [TaskType.checkin] complete once mood, energy, and adherence are
+  /// all set for today.
+  void _syncCheckinTask() {
+    final isComplete =
+        _state.mood != null && _state.energyLevel != null && _state.adherenceLevel != null;
+    final tasks = _state.todayTasks
+        .map((task) =>
+            task.type == TaskType.checkin ? task.copyWith(isCompleted: isComplete) : task)
+        .toList();
+    _state = _state.copyWith(todayTasks: tasks);
   }
 
   /// Updates today's journal text as the user types. Persisted with a short
@@ -253,6 +293,8 @@ class ChallengeController extends ChangeNotifier {
         photoPath: photoPath,
         journalText: _state.journalText.isEmpty ? null : _state.journalText,
         mood: _state.mood,
+        energyLevel: _state.energyLevel,
+        adherenceLevel: _state.adherenceLevel,
         voiceNotePath: _state.voiceNotePath,
       ),
     ];
@@ -265,10 +307,12 @@ class ChallengeController extends ChangeNotifier {
     } else {
       _state = _state.copyWith(
         currentDay: _state.currentDay + 1,
-        todayTasks: _state.todayTasks.map((task) => task.resetForNewDay()).toList(),
+        todayTasks: DailyTask.templateForDate(DateTime.now()),
         completedDays: updatedHistory,
         journalText: '',
         clearMood: true,
+        clearEnergyLevel: true,
+        clearAdherenceLevel: true,
         clearVoiceNotePath: true,
       );
     }
